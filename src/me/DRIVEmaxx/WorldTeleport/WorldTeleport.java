@@ -45,15 +45,14 @@ public class WorldTeleport  extends JavaPlugin {
         
         if(cmd.getName().equalsIgnoreCase("worldlist") && player.hasPermission("worldteleport.list"))
         {
-
         	String[] worldNames = new String[Bukkit.getServer().getWorlds().size()];
         	int count = 0;
         	for(World w : Bukkit.getServer().getWorlds()){
         		worldNames[count] = w.getName();
         		count++;
         	}
+    		player.sendMessage(ChatColor.YELLOW + "Seznam svetu: ");
         	for(String list : worldNames){
-        		player.sendMessage(ChatColor.YELLOW + "Seznam svetu: ");
         		player.sendMessage(list);
         	}
         }
