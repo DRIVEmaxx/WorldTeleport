@@ -1,7 +1,7 @@
 WorldTeleport
 =============
 
-<h3>Simple Minecraft plugin for teleport player location to define world.</h3>
+<h3>Simple Minecraft plugin for teleport player to define world.</h3>
 
 <b>Commands:</b>
   
