@@ -2,7 +2,9 @@ package me.DRIVEmaxx.WorldTeleport;
 
 import java.util.logging.Logger;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -44,9 +46,16 @@ public class WorldTeleport  extends JavaPlugin {
         if(cmd.getName().equalsIgnoreCase("worldlist") && player.hasPermission("worldteleport.list"))
         {
 
-
-        	
-        	
+        	String[] worldNames = new String[Bukkit.getServer().getWorlds().size()];
+        	int count = 0;
+        	for(World w : Bukkit.getServer().getWorlds()){
+        		worldNames[count] = w.getName();
+        		count++;
+        	}
+        	for(String list : worldNames){
+        		player.sendMessage(ChatColor.YELLOW + "Seznam svetu: ");
+        		player.sendMessage(list);
+        	}
         }
         return true;
     }

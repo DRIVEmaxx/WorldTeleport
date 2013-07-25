@@ -2,3 +2,13 @@ name: WorldTeleport
 main: me.DRIVEmaxx.WorldTeleport.WorldTeleport
 author: DRIVEmaxx
 version: 1.0
+commands:
+    worldtp:
+        description: World teleport
+    worldlist:
+        description: World list 
+permissions:
+    worldteleport.port:
+        default: op
+    worldteleport.list:
+        default: op
