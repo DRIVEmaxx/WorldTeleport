@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Server;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -27,6 +28,7 @@ public class WorldTeleport  extends JavaPlugin {
     public boolean onCommand(CommandSender sender, Command cmd, String cL, String args[])
     {
     	Player player = (Player) sender;
+    	Server server = player.getServer();
     	
     	if(!player.hasPermission("worldteleport.port") || !player.hasPermission("worldteleport.list")){
     		player.sendMessage(ChatColor.RED + "Nemas potrebna opravneni pro tento prikaz!");
@@ -34,13 +36,16 @@ public class WorldTeleport  extends JavaPlugin {
     	}
  
     	
-        if(cmd.getName().equalsIgnoreCase("worldtp") && player.hasPermission("worldteleport.port"))
-        {  
-
-
+        if(cmd.getName().equalsIgnoreCase("worldtp") && args.length==1 && player.hasPermission("worldteleport.port"))
+        {
+        	World world = server.getWorld(args[0]);
+        	if (world == null)
+        		player.sendMessage(ChatColor.YELLOW + "Tento svet neexistuje pro seznam svetu pouzi" + ChatColor.RED + " /worldlist");
         	
-        	
-        	
+       		if (world != null)
+       			player.teleport(world.getSpawnLocation());   
+       			
+       		return true;      			
         }
         
         if(cmd.getName().equalsIgnoreCase("worldlist") && player.hasPermission("worldteleport.list"))
