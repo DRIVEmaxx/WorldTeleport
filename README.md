@@ -6,4 +6,4 @@ WorldTeleport
 <b>Commands:</b>
   
   <p>/worldtp [world] - Teleport player to world.</p>
-  <p>/worldlist - Sevrer world list.</p>
+  <p>/worldlist - Server world list.</p>
